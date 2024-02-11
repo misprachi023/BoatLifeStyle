@@ -25,7 +25,7 @@ const Login = () => {
   const toast = useToast();
   const handleClick = async () => {
     await axios
-      .get("http://localhost:8080/user/logout", {
+      .get("https://boatlifestyle.onrender.com/user/logout", {
         withCredentials: true,
       })
       .then((res) => {
