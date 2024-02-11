@@ -54,7 +54,7 @@ const CartSection = () => {
     console.log(userDetails);
     const res = await fetch("deploy link/user/signup", {
       method: "POST",
-      headers: {
+      headers: { 
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userDetails),

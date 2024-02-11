@@ -35,7 +35,7 @@ const UserName = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     console.log(userLoginDetails);
-    const res = await fetch("http://localhost:8080/user/login", {
+    const res = await fetch("https://boatlifestyle.onrender.com/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -163,7 +163,7 @@ const UserName = () => {
                   type="submit"
                   value="Login"
                   onClick={(e) => {
-                    handleSubmit(e);
+                    handleSubmit(e); 
                     setOverlay(<OverlayOne />);
                     modal3OnClose();
                   }}

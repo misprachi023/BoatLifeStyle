@@ -60,12 +60,12 @@ const Createuser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(userDetails);
-    const res = await fetch("http://localhost:8080/usertemp/register", {
+    const res = await fetch("https://boatlifestyle.onrender.com/usertemp/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
+      credentials: "include", 
       body: JSON.stringify(userDetails),
     });
     const data = await res.json();
@@ -82,7 +82,7 @@ const Createuser = () => {
   const handleVerifySubmit = async (e) => {
     e.preventDefault();
     console.log(otp);
-    const res = await fetch("http://localhost:8080/usertemp/verify", {
+    const res = await fetch("https://boatlifestyle.onrender.com/usertemp/verify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const Createuser = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     console.log(otp);
-    await fetch("http://localhost:8080/user/login", {
+    await fetch("https://boatlifestyle.onrender.com/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

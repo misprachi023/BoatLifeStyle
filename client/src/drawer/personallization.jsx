@@ -25,7 +25,7 @@ const PersonlizationStyle = () => {
   React.useEffect(() => {
     async function getProducts() {
       try {
-        const res = await fetch("http://localhost:8080/products");
+        const res = await fetch("https://boatlifestyle.onrender.com/products");
         const data = await res.json();
         console.log(data);
         setProducts(data);

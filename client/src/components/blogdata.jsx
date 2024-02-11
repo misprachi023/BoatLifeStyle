@@ -16,7 +16,7 @@ const BlogData = () => {
   React.useEffect(() => {
     async function getBlogs() {
       try {
-        const res = await fetch("http://localhost:8080/blogs");
+        const res = await fetch("https://boatlifestyle.onrender.com/blogs");
         const data = await res.json();
         console.log(data);
         setBlogs(data);
