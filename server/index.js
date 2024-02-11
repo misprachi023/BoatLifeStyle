@@ -17,7 +17,7 @@ app.use(
 		credentials: true,
 	})
 );
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
 	res.status(200).send("this is a home page");
 });
 app.use("/user", userRouter);
