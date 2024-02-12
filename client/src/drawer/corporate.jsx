@@ -3,6 +3,7 @@ import Boat from "../data/boatdata";
 import {
   Card,
   Grid,
+  CardBody,
   Flex,
   CardFooter,
   Heading,
@@ -10,6 +11,7 @@ import {
   Image,
   Stack,
   Button,
+  Box,
   Divider,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
