@@ -30,6 +30,7 @@ UsertempRouter.post("/verify", async (req, res) => {
 
                 });
             }
+            
         }
     } catch (error) {
         res.status(400).send({
@@ -84,8 +85,8 @@ UsertempRouter.post("/register", async (req, res) => {
                     );
                 },
                 async function (error) {
-                await UserTempModel.deleteOne({ email });
-                    console.error(error);
+                
+                    console.error("otp not send");
                     
                 }
             );
