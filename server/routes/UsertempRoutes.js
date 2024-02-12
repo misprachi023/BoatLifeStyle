@@ -12,7 +12,7 @@ UsertempRouter.post("/verify", async (req, res) => {
         const findingUser = await UserTempModel.findOne({ email });
         if (!findingUser) {
             res.status(400).send({
-                message: "User not found",
+                message: "User not found", 
             });
         } else {
             if (findingUser.otp == otp) {

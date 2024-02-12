@@ -7,6 +7,7 @@ const { userRouter } = require("./routes/UserRoutes");
 const ProductModel = require("./models/productsModel");
 const BlogModel = require("./models/blogModel");
 const UsertemRouter = require("./routes/UsertempRoutes");
+const {auth} = require("./middlewares/authMiddleware");
 const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
 	res.status(200).send("this is a home page");
 });
 app.use("/user", userRouter);
-app.get("/products", async (req, res) => {
+app.get("/products", auth, async (req, res) => {
 	try {
 		const products = await ProductModel.find();
 		res.status(200).send(products); 
