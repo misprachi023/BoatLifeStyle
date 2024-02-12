@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
    
     const accessToken = req.cookies.accessToken;
     const refreshToken = req.cookies.refreshToken;
-    console.log("auth hit", req.cookies)
+    console.log("auth hit", req.cookies) 
     try {
         if (!accessToken || !refreshToken) {
             return res.status(200).send({ msg: "Unauthorized - Tokens missing" });
