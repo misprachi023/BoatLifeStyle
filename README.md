@@ -2,7 +2,7 @@
 
 ![BoatLifeStyle Logo](https://www.boat-lifestyle.com/cdn/shop/files/boAt_logo_small_3067da8c-a83b-46dd-b28b-6ef1e16ccd17_small.svg?v=1693549434)
 
-boat-lifestyle clone was a unit-6 Construct-week project at Masai School. In this we have tried to clone the website.
+boat-lifestyle clone was a  Construct-week project at Masai School. In this we have tried to clone the website.
 
 Our task is that we have to create a consumer electronics brand the famous electronic e-commerce website boat-lifestyle clone with basic core functionalities and good looking user interface.
 
