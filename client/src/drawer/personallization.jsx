@@ -76,7 +76,7 @@ const PersonlizationStyle = () => {
             ]}
             gap={4}
           >
-            {Products.map((item) => (
+            {Products.map((item) => ( 
               <Box
                 margin={"2"}
                 display="flex"
