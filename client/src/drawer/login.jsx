@@ -24,36 +24,35 @@ const Login = () => {
   const { user } = useContext(AuthContext);
   const toast = useToast();
   const handleClick = async () => {
-    await axios
-      .get("https://boatlifestyle.onrender.com/user/logout", {
+    try {
+      const response = await axios.get("https://boatlifestyle.onrender.com/user/logout", {
         withCredentials: true,
-      })
-      .then((res) => {
-        if (res.data.msg == "logout successfull") {
-          toast({
-            title: "Logout",
-            description: "You are logged out",
-            status: "success",
-          });
-          setIsLogin(false);
-        } else {
-          toast({
-            title: "Logout failed",
-            description: res.data.msg,
-            status: "error",
-          });
-        }
-      })
-      .catch((err) => {
+      });
+  
+      if (response.data.msg === "logout successfull") {
+        setIsLogin(false);
+        toast({
+          title: "Logout",
+          description: "You are logged out",
+          status: "success",
+        });
+      } else {
         toast({
           title: "Logout failed",
-          description: "try again",
+          description: response.data.msg || "Unknown error",
           status: "error",
         });
-        console.log(err);
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+      toast({
+        title: "Logout failed",
+        description: "An error occurred while logging out",
+        status: "error",
       });
+    }
   };
-
+  
   return (
     <>
       <Popover>

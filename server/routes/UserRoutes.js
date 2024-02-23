@@ -69,26 +69,30 @@ userRouter.post("/login", async (req, res) => {
     }
 });
 userRouter.get("/logout", async (req, res) => {
-
-    const accessToken = req.cookies.accessToken;
-    console.log({ accessToken: accessToken })
     try {
-        console.log("start logout   ")
-        const checkTokensIsExists = await BlacklistModel.findOne({ accessToken })
+        const accessToken = req.cookies.accessToken;
+        console.log({ accessToken: accessToken });
+
+        if (!accessToken) {
+            return res.status(400).send({ msg: "Access token not found in cookies" });
+        }
+
+        console.log("Starting logout");
+        const checkTokensIsExists = await BlacklistModel.findOne({ accessToken });
 
         if (checkTokensIsExists) {
-            res.status(400).send({ msg: "you already logout!" })
-        } else {
-            console.log("logged out")
-            const blacklistTokens = new BlacklistModel({ accessToken });
-            await blacklistTokens.save();
-            res.status(200).send({ msg: "logout successfull", blacklistTokens })
+            console.log("Token already blacklisted");
+            return res.status(400).send({ msg: "You are already logged out" });
         }
-        console.log("end logout")
-    } catch (error) {
-        console.log(error)
-        res.status(400).send({ msg: "error while logout!", error: error })
-    }
-})
 
+        console.log("Logging out...");
+        const blacklistTokens = new BlacklistModel({ accessToken });
+        await blacklistTokens.save();
+        console.log("Logged out successfully");
+        return res.status(200).send({ msg: "Logout successful", blacklistTokens });
+    } catch (error) {
+        console.error("Error occurred during logout:", error);
+        return res.status(500).send({ msg: "Error while logging out", error: error });
+    }
+});
 module.exports = { userRouter };
