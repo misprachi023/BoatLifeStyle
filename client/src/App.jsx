@@ -9,6 +9,8 @@ import PersonlizationStyle from "./drawer/personallization";
 import Gift from "./drawer/gift";
 import Corporate from "./drawer/corporate";
 import BlogData from "./components/blogdata";
+import Login from "./drawer/login";
+import UserName from "./drawer/username";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/personalisation" element={<PersonlizationStyle/>} />
         <Route path="/gift" element={<Gift />} />
         <Route path="/corporate" element={<Corporate />} />
+        <Route path="/user/login" element={<UserName />} />
+       <Route path="/user/logout" element={<Login />} />
       </Routes>  
       <Footer />
       <MidFooter />
