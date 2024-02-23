@@ -28,7 +28,8 @@ in footer page the user can subscribe by mail, so that he will also get the welc
 [deploy link](https://boat-life-style-nine.vercel.app/)
 
 # :computer: Tech Stack
-  <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="html" width="55" height="55"/>
+   <p align="center">
+      <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="html" width="55" height="55"/>
       <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="css" width="55" height="55"/>
       <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="55" height="55"/>
       <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="reactjs" width="55" height="55"/>
@@ -40,6 +41,7 @@ in footer page the user can subscribe by mail, so that he will also get the welc
       <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GIT" width="55" height="55" marginleft="15"/>
     <img src="https://img.icons8.com/?size=96&id=r9QJ0VFFrn7T&format=png" alt ="chakra" width="55" height="55" />
       <img src="https://www.svgrepo.com/show/354048/material-ui.svg" alt="GIT" width="55" height="55" marginleft="15"/>
+</p>
 
 ## Installation
 To run Sears locally, follow these steps:
