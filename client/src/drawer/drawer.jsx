@@ -22,7 +22,17 @@ import { Link } from "react-router-dom";
 
 const Drawer = () => {
   return (
-    <Box width={"55%"} backgroundColor={"white"}>
+    <Box
+      width={"55%"}
+      backgroundColor={"white"}
+      position="fixed" // or "absolute" depending on your needs
+      top="0"
+      bottom="0"
+      left="0"
+      zIndex="10"
+      overflowY="auto"
+      boxShadow="2xl"
+    >
       <Accordion allowMultiple fontWeight={"500"}>
         <AccordionItem key="categories">
           <AccordionButton>
@@ -36,7 +46,7 @@ const Drawer = () => {
               <Grid templateColumns="repeat(3, 1fr)">
                 {categories.map((item, index) => (
                   <GridItem key={index} display={"flex"} gap={3}>
-                    <img width={"20%"} src={item.image} />
+                    <img width={"20%"} src={item.image} alt={item.title} />
                     <Text fontSize={"10px"} marginTop={"10px"}>
                       {item.title}
                     </Text>
