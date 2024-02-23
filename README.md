@@ -35,11 +35,12 @@ in footer page the user can subscribe by mail, so that he will also get the welc
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Chakra](https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white)
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
-![Nodejs](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
-![Express](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
-![MongoDB](https://img.icons8.com/?size=48&id=54087&format=png?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
-
+<img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Nodejs" width="55" height="55"/>
+      <img src="https://www.svgrepo.com/show/331488/mongodb.svg" alt="MongoDB" width="55" height="55"/>
+      <img src= "https://tse1.mm.bing.net/th?id=OIP.igsTOJNvPT5roAeEEwUn7QAAAA&pid=Api&P=0&h=180" alt ="Express" width="55" height ="55" color="red"/>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="55" height="55"/>
+      <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="55" height="55"/>
+      <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GIT" width="55" height="55" marginleft="15"/>
 
 ## Installation
 To run Sears locally, follow these steps:
