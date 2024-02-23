@@ -29,7 +29,7 @@ const Login = () => {
         withCredentials: true,
       })
       .then((res) => {
-        if (res.data.msg == "Logout successfull") {
+        if (res.data.msg == "Logout successful") {
           toast({
             title: "Logout",
             description: "You are logged out",
@@ -39,7 +39,7 @@ const Login = () => {
         } else {
           toast({
             title: "Logout failed",
-            description: res.data.msg,
+            description: err.response.data.msg || "An error occurred",
             status: "error",
           });
         }
