@@ -113,7 +113,7 @@ UsertempRouter.post("/verify", async (req, res) => {
 UsertempRouter.post("/register", async (req, res) => {
     console.log(req.body);
     const user = await UserModel.findOne({ email: req.body.email });
-    const { name, email, dob, gender, password } = req.body;
+    const { userName, email, password } = req.body;
     try {
         const findingUser = await UserModel.findOne({ email });
         if (findingUser) {
@@ -125,10 +125,8 @@ UsertempRouter.post("/register", async (req, res) => {
             console.log(otp);
             const userTemp = new UserTempModel({
                 email,
-                name,
+                userName,
                 otp,
-                dob,
-                gender,
                 password,
             });
             await userTemp.save();
