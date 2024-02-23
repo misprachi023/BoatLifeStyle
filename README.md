@@ -28,18 +28,20 @@ in footer page the user can subscribe by mail, so that he will also get the welc
 [deploy link](https://boat-life-style-nine.vercel.app/)
 
 # :computer: Tech Stack
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-![Chakra](https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white)
-![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
-![Nodejs](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
-![Express](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
-![MongoDB](https://img.icons8.com/?size=48&id=54087&format=png?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
-
+   <p align="center">
+      <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="html" width="55" height="55"/>
+      <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="css" width="55" height="55"/>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="55" height="55"/>
+      <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="reactjs" width="55" height="55"/>
+      <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Nodejs" width="55" height="55"/>
+      <img src="https://www.svgrepo.com/show/331488/mongodb.svg" alt="MongoDB" width="55" height="55"/>
+      <img src= "https://tse1.mm.bing.net/th?id=OIP.igsTOJNvPT5roAeEEwUn7QAAAA&pid=Api&P=0&h=180" alt ="Express" width="55" height ="55" color="red"/>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="55" height="55"/>
+      <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="55" height="55"/>
+      <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GIT" width="55" height="55" marginleft="15"/>
+    <img src="https://img.icons8.com/?size=96&id=r9QJ0VFFrn7T&format=png" alt ="chakra" width="55" height="55" />
+      <img src="https://www.svgrepo.com/show/354048/material-ui.svg" alt="GIT" width="55" height="55" marginleft="15"/>
+</p>
 
 ## Installation
 To run Sears locally, follow these steps:
