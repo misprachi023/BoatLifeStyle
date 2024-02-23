@@ -29,7 +29,7 @@ const Login = () => {
         withCredentials: true,
       })
       .then((res) => {
-        if (res.data.msg == "logout successfull") {
+        if (res.data.msg == "Logout successfull") {
           toast({
             title: "Logout",
             description: "You are logged out",
