@@ -127,6 +127,7 @@ const PersonlizationStyle = () => {
                         size={["md", "md"]}
                         colorScheme="black"
                         background="black"
+                        _hover={"DarkSlateGray"}
                         marginTop={"5"}
                         width={"100%"}
                         onClick={() => addItem(item)}

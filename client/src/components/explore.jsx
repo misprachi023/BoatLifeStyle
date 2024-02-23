@@ -37,7 +37,7 @@ const Slider = () => {
             borderRadius={"10px"}
             objectFit={"cover"}
           >
-            <HoverVideoPlayer videoSrc="https://www.boat-lifestyle.com/cdn/shop/files/quinn_RUxbhR7CvjkNtlFUDxgw9.mp4" />
+            <HoverVideoPlayer style={{ width: "100%" , height: "100%", padding: "5px", borderRadius: "10px"}} videoSrc="https://www.boat-lifestyle.com/cdn/shop/files/quinn_RUxbhR7CvjkNtlFUDxgw9.mp4" />
           </Box>
           <Text textAlign={"center"} fontWeight={"bold"}>
             Smartwatches

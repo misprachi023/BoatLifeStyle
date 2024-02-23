@@ -127,14 +127,14 @@ function CartMain() {
       >
         <Text>Total: ${totalCartPrice}</Text>
         <Button backgroundColor={"black"}
-          _hover={"none"}  
+          _hover={"DarkSlateGray"}  
          color="white">
           Checkout
         </Button>
         <Button
           margin={"10px"}
           color={"white"}
-          _hover={"none"}
+          _hover={"IndianRed"}
           width={"45%"}
           backgroundColor={"red"}
           onClick={() => emptyCart()}
