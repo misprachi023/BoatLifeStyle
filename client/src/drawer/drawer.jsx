@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Accordion,
   AccordionItem,
@@ -20,18 +20,36 @@ import {
 import categories from "../data/categories";
 import { Link } from "react-router-dom";
 
-const Drawer = () => {
+const Drawer = ({ isOpen, onClose }) => {
+  const drawerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
+
   return (
     <Box
+      ref={drawerRef}
       width={"55%"}
       backgroundColor={"white"}
       position="fixed" // or "absolute" depending on your needs
       top="0"
       bottom="0"
-      left="0"
+      left={isOpen ? "0" : "-55%"} // Slide in/out based on isOpen state
       zIndex="10"
       overflowY="auto"
       boxShadow="2xl"
+      transition="left 0.3s ease-in-out" // Add smooth transition
+      maxHeight="80vh" // Adjust the height as needed
     >
       <Accordion allowMultiple fontWeight={"500"}>
         <AccordionItem key="categories">
@@ -56,6 +74,8 @@ const Drawer = () => {
             </HStack>
           </AccordionPanel>
         </AccordionItem>
+
+        {/* Additional Accordion items go here */}
 
         <AccordionItem key="personalization">
           <Link to="/personalisation">
@@ -113,4 +133,5 @@ const Drawer = () => {
     </Box>
   );
 };
+
 export default Drawer;
