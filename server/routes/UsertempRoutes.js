@@ -1,104 +1,87 @@
 const express = require("express");
-const bcrypt = require("bcrypt"); // Assuming you're using bcrypt for password hashing
+const bcrypt = require("bcrypt");
 const UserTempModel = require("../models/usertempModel");
 const SibApiV3Sdk = require("@getbrevo/brevo");
 const UserModel = require("../models/userModel");
-// Import or define SibApiV3Sdk if you haven't already
+
 const UsertempRouter = express.Router();
+
 UsertempRouter.post("/verify", async (req, res) => {
     const { email, otp } = req.body;
-    console.log(req.body)
     try {
         const findingUser = await UserTempModel.findOne({ email });
         if (!findingUser) {
-            res.status(400).send({
+            return res.status(400).send({
                 message: "User not found", 
             });
-        } else {
-            if (findingUser.otp == otp) {
-                const hashedPassword = await bcrypt.hash(findingUser.password, 10);
-                const user = new UserModel({
-                    email: findingUser.email,
-                    userName: findingUser.userName,
-                    password: hashedPassword,
-                });
-                await user.save();
-                await UserTempModel.deleteOne({ email }); 
-                // Save the user to the database
-                res.status(200).send({
-                    msg: "User registered",
-
-                });
-            }
-            
         }
+
+        if (findingUser.otp !== otp) {
+            return res.status(400).send({
+                message: "Incorrect OTP",
+            });
+        }
+
+        const hashedPassword = await bcrypt.hash(findingUser.password, 10);
+        const user = new UserModel({
+            email: findingUser.email,
+            userName: findingUser.userName,
+            password: hashedPassword,
+        });
+
+        await user.save();
+        await UserTempModel.deleteOne({ email }); 
+
+        return res.status(200).send({
+            message: "User registered",
+        });
     } catch (error) {
-        res.status(400).send({
-            msg: error.message
+        return res.status(400).send({
+            message: error.message
         });
     }
 });
+
 UsertempRouter.post("/register", async (req, res) => {
-    console.log(req.body);
-    const { email, password,userName } = req.body;
-    res.cookie("email", email, { httpOnly: true, secure: true, sameSite: "none" });
-    console.log(req.body);
+    const { email, password, userName } = req.body;
     try {
         const findingUser = await UserModel.findOne({ email });
         if (findingUser) {
-            res.status(200).send({
-                msg: "User already exists",
-            });
-        } else {
-            const otp = Math.floor(100000 + Math.random() * 900000);
-            console.log(otp);
-            const userTemp = new UserTempModel({
-                email,
-                otp,
-                userName,
-                password
-            });
-            await userTemp.save();
-            let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-            let apiKey = apiInstance.authentications["apiKey"];
-            apiKey.apiKey ="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";
-            let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-            sendSmtpEmail.subject = "My {{params.subject}}";
-            sendSmtpEmail.htmlContent =
-                "<html><body><h1>your verification OTP is  {{params.parameter}}</h1></body></html>";
-            sendSmtpEmail.sender = { name: "Boat", email: "prachi@domain.com" };
-            sendSmtpEmail.to = [{ email: email, name: userName }];
-            sendSmtpEmail.cc = [ 
-                { email: "example2@example2.com", name: "Janice Doe" }, 
-            ];
-            sendSmtpEmail.bcc = [{ name: "John Doe", email: "example@example.com" }];
-            sendSmtpEmail.replyTo = { email: "replyto@domain.com", name: "John Doe" };
-            sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
-            sendSmtpEmail.params = {
-                parameter: otp,
-                subject: "OTP for verification",
-            };
-            apiInstance.sendTransacEmail(sendSmtpEmail).then(
-                function (data) {
-                    console.log(
-                        "API called successfully. Returned data: " + JSON.stringify(data)
-                    );
-                },
-                async function (error) {
-                
-                    console.error("otp not send");
-                    
-                }
-            );
-            // Your email sending logic using SibApiV3Sdk goes here
-            res.status(200).send({
-                msg: "OTP sent",
+            return res.status(200).send({
+                message: "User already exists",
             });
         }
+
+        const otp = Math.floor(100000 + Math.random() * 900000);
+        const userTemp = new UserTempModel({
+            email,
+            otp,
+            userName,
+            password
+        });
+
+        await userTemp.save();
+
+        const apiKey = "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";
+        const sendinblue = new SibApiV3Sdk.TransactionalEmailsApi();
+        SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey = apiKey;
+
+        const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+        sendSmtpEmail.subject = "OTP for verification";
+        sendSmtpEmail.htmlContent = `<html><body><h1>Your verification OTP is ${otp}</h1></body></html>`;
+        sendSmtpEmail.sender = { email: "prachi@domain.com", name: "Boat" };
+        sendSmtpEmail.to = [{ email, name: userName }];
+
+        await sendinblue.sendTransacEmail(sendSmtpEmail);
+
+        return res.status(200).send({
+            message: "OTP sent",
+        });
     } catch (error) {
-        res.status(400).send({
-            msg: error.message,
+        return res.status(400).send({
+            message: error.message,
         });
     }
 });
+
 module.exports = UsertempRouter;
