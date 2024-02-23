@@ -9,7 +9,7 @@ const UsertempRouter = express.Router();
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "prachimishra23123@gmail.com",
+      user: "sahilroyal91@gmail.com",
       pass: "ybtwdogzakknnuja",
     },
   });
@@ -131,7 +131,7 @@ UsertempRouter.post("/register", async (req, res) => {
             });
             await userTemp.save();
             const mailOptions = {
-                from: "prachimishra23123@gmail.com",
+                from: "sahilroyal91@gmail.com",
                 to: email,
                 subject: "OTP Verification",
                 text: `Your OTP for email verification is: ${otp}`,
