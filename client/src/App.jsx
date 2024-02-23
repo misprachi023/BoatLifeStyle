@@ -24,8 +24,8 @@ function App() {
         <Route path="/personalisation" element={<PersonlizationStyle/>} />
         <Route path="/gift" element={<Gift />} />
         <Route path="/corporate" element={<Corporate />} />
-        <Route path="/user/login" element={<UserName />} />
-       <Route path="/user/logout" element={<Login />} />
+        <Route path="/login" element={<UserName />} />
+       <Route path="/logout" element={<Login />} />
       </Routes>  
       <Footer />
       <MidFooter />
