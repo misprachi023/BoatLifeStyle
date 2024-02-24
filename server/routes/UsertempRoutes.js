@@ -64,7 +64,7 @@ UsertempRouter.post("/verify", async (req, res) => {
 //                 email,
 //                 otp,
 //                 userName,
-//                 password
+//                 password  
 //             });
 //             await userTemp.save();
 //             let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
@@ -143,7 +143,7 @@ UsertempRouter.post("/register", async (req, res) => {
         res.status(200).send({
             message: error.message,
         });
-    }
+    } 
 });
 
 

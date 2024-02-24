@@ -7,6 +7,7 @@ const { userRouter } = require("./routes/UserRoutes");
 const ProductModel = require("./models/productsModel");
 const BlogModel = require("./models/blogModel");
 const UsertemRouter = require("./routes/UsertempRoutes");
+const PayamentRouter = require("./routes/PaymentRouter");
 const {auth} = require("./middlewares/authMiddleware");
 const PORT = process.env.PORT;
 const app = express();
@@ -61,9 +62,10 @@ app.get("/blogs", async (req, res) => {
 		res.status(500).send({
 			message: error.message,
 		})
-	}
+	} 
 })
 app.use("/usertemp", UsertemRouter);
+app.use("/payment", PayamentRouter);
 
 app.use((req, res) => {
 	res.status(404).send("this is invalid request!");

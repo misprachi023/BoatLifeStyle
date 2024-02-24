@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import {  useCart } from "react-use-cart";
 import { Button, Heading, Text, Flex } from "@chakra-ui/react";
+import useRazorpay from "react-razorpay";
 function Page() {
   const { addItem } = useCart();
   const products = [
@@ -34,6 +35,7 @@ function Page() {
   );
 }
 function CartMain() {
+  const Razorpay = useRazorpay();
   const {
     isEmpty,
     emptyCart,
@@ -49,6 +51,38 @@ function CartMain() {
     0
   );
   if (isEmpty) return <Heading size="sm"></Heading>;
+  const checkoutHandler = async ({ name, amount }) => {
+    const {
+        data: { order },
+    } = await axios.post(`https://sears-40h2.onrender.com/payment/checkout`, {
+        name,
+        amount,
+    });
+    var options = {
+        key: "rzp_test_lDKz5Mp6nAXD0O",
+        amount: order.amount,
+        currency: order.currency,
+        name: "BoAt LifeStyle",
+        description: "Test Transaction",
+        image: "https://www.boat-lifestyle.com/cdn/shop/files/boAt_logo_small_3067da8c-a83b-46dd-b28b-6ef1e16ccd17_small.svg?v=1693549434",
+        order_id: order.id,
+        callback_url: "https://boatlifestyle.onrender.com/payment/verification",
+        prefill: {
+            name: "xyzxyz",
+            email: "xyz.soni@example.com",
+            contact: "9000090000",
+        },
+        notes: {
+            address: "Razorpay Corporate Office",
+        },
+        theme: {
+            color: "#3399CC",
+        },
+    };
+    console.log(window.Razorpay);
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+  }
   return (
     <>
       <Box
@@ -126,10 +160,12 @@ function CartMain() {
         p={4}
       >
         <Text>Total: ${totalCartPrice}</Text>
-        <Button backgroundColor={"black"}
+        <Button 
+        onClick={() => checkoutHandler({ name: "BoAt LifeStyle", amount: totalCartPrice })}
+        backgroundColor={"black"}
           _hover={"DarkSlateGray"}  
          color="white">
-          Checkout
+          Checkout 
         </Button>
         <Button
           margin={"10px"}
