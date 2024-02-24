@@ -20,7 +20,7 @@ paymentRouter.post("/checkout",async(req, res) => {
     order_id:order.id,
     name:UserName,
     amount:amount
-  });
+  }); 
   console.log(order)
   res.json({order})
 })

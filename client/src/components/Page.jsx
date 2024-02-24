@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Box } from "@chakra-ui/react";
 import {  useCart } from "react-use-cart";
 import { Button, Heading, Text, Flex } from "@chakra-ui/react";
