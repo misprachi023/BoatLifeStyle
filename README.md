@@ -118,6 +118,45 @@ To run Sears locally, follow these steps:
 - **Description**: Middleware function to authenticate user requests.
 - **Usage**: Imported and used in routes that require authentication.
 
+# Authentication Middleware
+
+This middleware provides authentication functionality using JSON Web Tokens (JWT). It verifies access tokens and refresh tokens to authenticate user requests.
+
+## `auth`
+
+### Description
+Middleware function to authenticate user requests using JWT.
+
+### Usage
+Import and use in routes that require authentication.
+
+### Functionality
+
+#### Verification of Access Token:
+- Verifies the provided access token using the ACCESS_KEY stored in the environment variables.
+- If the access token is valid, adds the decoded user information to the request body and proceeds to the next middleware or route handler.
+- If the access token is invalid or expired, it checks for a valid refresh token.
+
+#### Verification of Refresh Token:
+- If the access token is expired, it verifies the provided refresh token using the REFRESH_KEY stored in the environment variables.
+- If the refresh token is valid, generates a new access token and sends it in a cookie along with the response.
+- If the refresh token is invalid or expired, returns a 401 Unauthorized response.
+
+#### Blacklist Check:
+- Checks if the provided access token and refresh token are blacklisted.
+- If either token is found in the blacklist, it prevents access and prompts the user to log in again.
+
+### Configuration
+Ensure that the following environment variables are set:
+- `ACCESS_KEY`: Secret key used to sign and verify access tokens.
+- `REFRESH_KEY`: Secret key used to sign and verify refresh tokens.
+
+### Dependencies
+- `jsonwebtoken`: Used for generating and verifying JWTs.
+- `BlacklistModel`: Model for storing blacklisted tokens (not included in this code snippet).
+- `dotenv`: Used for loading environment variables from a .env file.
+
+
 **Screenshort**
 
 ![Home page](<client/file/Screenshot 2024-02-12 231929.png>)>
