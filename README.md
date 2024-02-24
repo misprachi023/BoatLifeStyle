@@ -1,4 +1,4 @@
-# :BoatLifeStyle Clone
+# BoatLifeStyle Clone
 
 ![BoatLifeStyle Logo](https://www.boat-lifestyle.com/cdn/shop/files/boAt_logo_small_3067da8c-a83b-46dd-b28b-6ef1e16ccd17_small.svg?v=1693549434)
 
@@ -10,7 +10,7 @@ As we all know BoAt is an India-based consumer electronics brand established in 
 
 BoAt brand is Indian, but its products, not so much. boAt's products are made through contract manufacturing in China, which is a reason why they are so affordable.
 
-# :FUNCTIONALITIES
+# Functionalities
 User can able to register themselves.
 
 In this website , the user can login with his own mail, which will be sent to his own phone number and after entering the OTP then he can login.
@@ -27,7 +27,7 @@ in footer page the user can subscribe by mail, so that he will also get the welc
 
 [deploy link](https://boat-life-style-nine.vercel.app/)
 
-# :computer: Tech Stack
+# computer: Tech Stack
    <p align="center">
       <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="html" width="55" height="55"/>
       <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="css" width="55" height="55"/>
