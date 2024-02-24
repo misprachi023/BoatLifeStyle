@@ -1,4 +1,4 @@
-# :BoatLifeStyle Clone
+# BoatLifeStyle Clone
 
 ![BoatLifeStyle Logo](https://www.boat-lifestyle.com/cdn/shop/files/boAt_logo_small_3067da8c-a83b-46dd-b28b-6ef1e16ccd17_small.svg?v=1693549434)
 
@@ -10,7 +10,7 @@ As we all know BoAt is an India-based consumer electronics brand established in 
 
 BoAt brand is Indian, but its products, not so much. boAt's products are made through contract manufacturing in China, which is a reason why they are so affordable.
 
-# :FUNCTIONALITIES
+# Functionalities
 User can able to register themselves.
 
 In this website , the user can login with his own mail, which will be sent to his own phone number and after entering the OTP then he can login.
@@ -25,9 +25,9 @@ After clicking on any electronic product , product page added to the cart page t
 
 in footer page the user can subscribe by mail, so that he will also get the welcome message from the website.
 
-[deploy link](https://boat-life-style-nine.vercel.app/)
+[BoAt LifeStyle Deploy Link](https://boat-life-style-nine.vercel.app/)
 
-# :computer: Tech Stack
+# computer: Tech Stack
    <p align="center">
       <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="html" width="55" height="55"/>
       <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="css" width="55" height="55"/>
@@ -55,15 +55,106 @@ To run Sears locally, follow these steps:
 8. Start the client: `npm run client`
 
 
+## Middlewares
+1. `cors`: Allows cross-origin resource sharing with specified origins.
+2. `morgan`: HTTP request logger middleware.
+3. `express.json()`: Parses incoming request bodies in JSON format.
+4. `cookieParser`: Parses cookies attached to the client request.
+   
+## Error Handling
+- 400: Bad request, typically due to invalid input.
+- 401: Unauthorized, typically due to invalid credentials.
+- 404: Not found, typically when a requested resource does not exist./Invalid request route.
+- 500: Internal server error.
 
+## Routes
+### Signup
 
+- **Endpoint**: `POST /signup`
+- **Description**: Register a new user.
+- **Request Body**:
+  - `userName`: User's name.
+  - `email`: User's email.
+  - `password`: User's password.
+- **Response**:
+  - **Success**: Status 200 with a success message and user details.
+  - **Failure**: Status 400 with an error message.
 
+### Login
 
+- **Endpoint**: `POST /login`
+- **Description**: Authenticate a user and generate access and refresh tokens.
+- **Request Body**:
+  - `email`: User's email.
+  - `password`: User's password.
+- **Response**:
+  - **Success**: Status 200 with access and refresh tokens.
+  - **Failure**: 
+    - Status 404 if user not found.
+    - Status 401 if invalid password.
+    - Status 500 for internal server error.
 
+### Verify OTP
 
+- **Endpoint**: `POST /verify-otp`
+- **Description**: Verify OTP for password reset.
+- **Request Body**:
+  - `otp`: OTP sent to the user's email.
+  - `email`: User's email.
+- **Response**:
+  - **Success**: Status 201 with a success message.
+  - **Failure**: Status 401 with an error message.
 
+### Logout
+**Endpoint**: `POST /logout`
+- **Description**: Logout user and invalidate access token.
+- **Response**:
+- **Success**: Status 200 with a success message.
+- **Failure**: Status 400 with an error message.
 
+## Middlewares
+**Authentication Middleware**
+- **Middleware**: `auth`
+- **Description**: Middleware function to authenticate user requests.
+- **Usage**: Imported and used in routes that require authentication.
 
+# Authentication Middleware
+
+This middleware provides authentication functionality using JSON Web Tokens (JWT). It verifies access tokens and refresh tokens to authenticate user requests.
+
+## `auth`
+
+### Description
+Middleware function to authenticate user requests using JWT.
+
+### Usage
+Import and use in routes that require authentication.
+
+### Functionality
+
+#### Verification of Access Token:
+- Verifies the provided access token using the ACCESS_KEY stored in the environment variables.
+- If the access token is valid, adds the decoded user information to the request body and proceeds to the next middleware or route handler.
+- If the access token is invalid or expired, it checks for a valid refresh token.
+
+#### Verification of Refresh Token:
+- If the access token is expired, it verifies the provided refresh token using the REFRESH_KEY stored in the environment variables.
+- If the refresh token is valid, generates a new access token and sends it in a cookie along with the response.
+- If the refresh token is invalid or expired, returns a 401 Unauthorized response.
+
+#### Blacklist Check:
+- Checks if the provided access token and refresh token are blacklisted.
+- If either token is found in the blacklist, it prevents access and prompts the user to log in again.
+
+### Configuration
+Ensure that the following environment variables are set:
+- `ACCESS_KEY`: Secret key used to sign and verify access tokens.
+- `REFRESH_KEY`: Secret key used to sign and verify refresh tokens.
+
+### Dependencies
+- `jsonwebtoken`: Used for generating and verifying JWTs.
+- `BlacklistModel`: Model for storing blacklisted tokens (not included in this code snippet).
+- `dotenv`: Used for loading environment variables from a .env file.
 
 
 **Screenshort**
@@ -96,7 +187,7 @@ To run Sears locally, follow these steps:
 ![page logout](<client/file/Screenshot 2024-02-12 232904.png>)
 
 
-# :LERNING OUTCOME
+# Learning Outcomes
 in this project ,we learned about the power of collaborating with the team when we worked together all tasks were completed without any problems and we implemented so many things in this project by exploring more and more that's why we are able to completed our project.
 
 THANK YOU !
