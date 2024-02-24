@@ -25,7 +25,7 @@ After clicking on any electronic product , product page added to the cart page t
 
 in footer page the user can subscribe by mail, so that he will also get the welcome message from the website.
 
-[deploy link](https://boat-life-style-nine.vercel.app/)
+[BoAt LifeStyle Deploy Link](https://boat-life-style-nine.vercel.app/)
 
 # computer: Tech Stack
    <p align="center">
