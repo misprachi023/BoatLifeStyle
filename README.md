@@ -60,43 +60,63 @@ To run Sears locally, follow these steps:
 2. `morgan`: HTTP request logger middleware.
 3. `express.json()`: Parses incoming request bodies in JSON format.
 4. `cookieParser`: Parses cookies attached to the client request.
+   
+## Error Handling
+- 400: Bad request, typically due to invalid input.
+- 401: Unauthorized, typically due to invalid credentials.
+- 404: Not found, typically when a requested resource does not exist./Invalid request route.
+- 500: Internal server error.
 
 ## Routes
-**Signup**
-Endpoint: `POST /signup`
-Description: Register a new user.
-Request Body:
-`userName`: User's name.
-`email`: User's email.
-`password`: User's password.
-Response:
-Success: Status 200 with a success message and user details.
-Failure: Status 400 with an error message.
+### Signup
 
-**Login**
-Endpoint: `POST /login`
-Description: Authenticate a user and generate access and refresh tokens.
-Request Body:
-`email`: User's email.
-`password`: User's password.
-Response:
-Success: Status 200 with access and refresh tokens.
-Failure: Status 404 if user not found, 401 if invalid password, or 500 for internal server error.
+- **Endpoint**: `POST /signup`
+- **Description**: Register a new user.
+- **Request Body**:
+  - `userName`: User's name.
+  - `email`: User's email.
+  - `password`: User's password.
+- **Response**:
+  - **Success**: Status 200 with a success message and user details.
+  - **Failure**: Status 400 with an error message.
 
-**Verify OTP**
-Description: Verify OTP for password reset.
-Request Body:
-`otp`: OTP sent to the user's email.
-`email`: User's email.
-Response:
-Success: Status 201 with a success message.
-Failure: Status 401 with an error message.
+### Login
 
+- **Endpoint**: `POST /login`
+- **Description**: Authenticate a user and generate access and refresh tokens.
+- **Request Body**:
+  - `email`: User's email.
+  - `password`: User's password.
+- **Response**:
+  - **Success**: Status 200 with access and refresh tokens.
+  - **Failure**: 
+    - Status 404 if user not found.
+    - Status 401 if invalid password.
+    - Status 500 for internal server error.
 
+### Verify OTP
 
+- **Endpoint**: `POST /verify-otp`
+- **Description**: Verify OTP for password reset.
+- **Request Body**:
+  - `otp`: OTP sent to the user's email.
+  - `email`: User's email.
+- **Response**:
+  - **Success**: Status 201 with a success message.
+  - **Failure**: Status 401 with an error message.
 
+### Logout
+**Endpoint**: `POST /logout`
+- **Description**: Logout user and invalidate access token.
+- **Response**:
+- **Success**: Status 200 with a success message.
+- **Failure**: Status 400 with an error message.
 
-
+## Middlewares
+**Authentication Middleware**
+- **Middleware**: `auth`
+- **Description**: Middleware function to authenticate user requests.
+- **Usage**: Imported and used in routes that require authentication.
 
 **Screenshort**
 
