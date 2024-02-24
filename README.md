@@ -55,10 +55,42 @@ To run Sears locally, follow these steps:
 8. Start the client: `npm run client`
 
 
+## Middlewares
+1. `cors`: Allows cross-origin resource sharing with specified origins.
+2. `morgan`: HTTP request logger middleware.
+3. `express.json()`: Parses incoming request bodies in JSON format.
+4. `cookieParser`: Parses cookies attached to the client request.
 
+## Routes
+**Signup**
+Endpoint: `POST /signup`
+Description: Register a new user.
+Request Body:
+`userName`: User's name.
+`email`: User's email.
+`password`: User's password.
+Response:
+Success: Status 200 with a success message and user details.
+Failure: Status 400 with an error message.
 
+**Login**
+Endpoint: `POST /login`
+Description: Authenticate a user and generate access and refresh tokens.
+Request Body:
+`email`: User's email.
+`password`: User's password.
+Response:
+Success: Status 200 with access and refresh tokens.
+Failure: Status 404 if user not found, 401 if invalid password, or 500 for internal server error.
 
-
+**Verify OTP**
+Description: Verify OTP for password reset.
+Request Body:
+`otp`: OTP sent to the user's email.
+`email`: User's email.
+Response:
+Success: Status 201 with a success message.
+Failure: Status 401 with an error message.
 
 
 
@@ -96,7 +128,7 @@ To run Sears locally, follow these steps:
 ![page logout](<client/file/Screenshot 2024-02-12 232904.png>)
 
 
-# :LERNING OUTCOME
+# Learning Outcomes
 in this project ,we learned about the power of collaborating with the team when we worked together all tasks were completed without any problems and we implemented so many things in this project by exploring more and more that's why we are able to completed our project.
 
 THANK YOU !
