@@ -55,7 +55,7 @@ function CartMain() {
   const checkoutHandler = async ({ name, amount }) => {
     const {
         data: { order },
-    } = await axios.post(`https://sears-40h2.onrender.com/payment/checkout`, {
+    } = await axios.post(`https://boatlifestyle.onrender.com/payment/checkout`, {
         name,
         amount,
     });
