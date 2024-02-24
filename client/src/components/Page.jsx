@@ -36,7 +36,7 @@ function Page() {
   );
 }
 function CartMain() {
-  const Razorpay = useRazorpay();
+  const [Razorpay] = useRazorpay();
   const {
     isEmpty,
     emptyCart,
@@ -80,7 +80,7 @@ function CartMain() {
             color: "#3399CC",
         },
     };
-    console.log(window.Razorpay);
+    
     var rzp1 = new Razorpay(options);
     rzp1.open();
   }
